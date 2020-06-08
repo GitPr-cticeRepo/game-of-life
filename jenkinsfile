@@ -2,10 +2,14 @@ pipeline {
     agent { label 'LINUX' }
     stages {
         stage('source') {
-            git 'https://github.com/GitPr-cticeRepo/game-of-life.git'
+            steps {
+                git 'https://github.com/GitPr-cticeRepo/game-of-life.git'
+            }
         }
         stage('package') {
-            sh 'mvn package'
+            steps {
+                sh 'mvn package'
+            }
         }
     }
     
