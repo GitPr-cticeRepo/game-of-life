@@ -1,8 +1,12 @@
-node {
-    stage('scm') {
-        git 'https://github.com/GitPr-cticeRepo/game-of-life.git'
+pipeline {
+    agent { label 'LINUX' }
+    stages {
+        stage('source') {
+            git 'https://github.com/GitPr-cticeRepo/game-of-life.git'
+        }
+        stage('package') {
+            sh 'mvn package'
+        }
     }
-    stage('build') {
-        sh 'mvn package'
-    }
+    
 }
